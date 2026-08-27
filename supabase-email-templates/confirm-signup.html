@@ -1,0 +1,182 @@
+<!--
+  VUT HOMES — CONFIRM SIGNUP EMAIL TEMPLATE
+  =========================================
+  Where to paste: Supabase Dashboard → Authentication → Emails → Templates
+                  → "Confirm signup" → replace the Source/HTML body.
+  Subject line:   Confirm your email — VUT Homes Student Housing
+
+  Available variables used below:
+    {{ .ConfirmationURL }} — the one-click confirmation link
+    {{ .Token }}           — the raw OTP token (shown as a manual fallback)
+    {{ .Email }}           — the recipient's address
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="supported-color-schemes" content="light dark" />
+  <title>Confirm your email — VUT Homes</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f1f5f9;">
+
+  <!-- Preheader (hidden preview text) -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+    You're one click away from your student home — confirm your email to activate your account.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f1f5f9; padding:32px 12px;">
+    <tr>
+      <td align="center">
+
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:520px;">
+
+          <!-- Logo / brand row -->
+          <tr>
+            <td align="center" style="padding-bottom:24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="
+                    background:linear-gradient(135deg,#0284c7,#0b3b60);
+                    background-color:#0b3b60;
+                    border-radius:14px;
+                    width:52px; height:52px;
+                    text-align:center; vertical-align:middle;
+                    font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+                    font-size:22px; font-weight:800; color:#ffffff;">
+                    V
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Main card -->
+          <tr>
+            <td style="
+              background-color:#ffffff;
+              border-radius:20px;
+              box-shadow:0 8px 30px rgba(11,59,96,0.08);
+              overflow:hidden;">
+
+              <!-- Header band -->
+              <div style="
+                background:linear-gradient(135deg,#0b3b60 0%,#0284c7 100%);
+                background-color:#0b3b60;
+                padding:36px 40px;
+                font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+                <h1 style="
+                  margin:0;
+                  font-size:24px;
+                  line-height:1.25;
+                  font-weight:800;
+                  color:#ffffff;
+                  letter-spacing:-0.3px;">
+                  Confirm your email &#127968;
+                </h1>
+                <p style="
+                  margin:10px 0 0;
+                  font-size:15px;
+                  line-height:1.5;
+                  color:#bae6fd;">
+                  You're one step away from securing your accredited student accommodation.
+                </p>
+              </div>
+
+              <!-- Body -->
+              <div style="
+                padding:36px 40px;
+                font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+                color:#1e293b;">
+
+                <p style="margin:0 0 18px; font-size:16px; line-height:1.65;">
+                  Hi there,
+                </p>
+                <p style="margin:0 0 26px; font-size:15px; line-height:1.65;">
+                  Thanks for creating your <strong style="color:#0b3b60;">VUT Homes</strong> student
+                  account. Please confirm that <strong>{{ .Email }}</strong> belongs to you by clicking
+                  the button below:
+                </p>
+
+                <!-- CTA button -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="center" style="padding-bottom:28px;">
+                      <a href="{{ .ConfirmationURL }}"
+                         style="
+                           display:inline-block;
+                           background:linear-gradient(135deg,#0284c7,#0369a1);
+                           background-color:#0284c7;
+                           color:#ffffff !important;
+                           font-size:16px;
+                           font-weight:700;
+                           text-decoration:none;
+                           padding:16px 44px;
+                           border-radius:12px;
+                           letter-spacing:0.2px;
+                           box-shadow:0 6px 16px rgba(2,132,199,0.35);">
+                        Confirm my email &rarr;
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Fallback for button-blocking clients -->
+                <p style="margin:0 0 8px; font-size:13px; line-height:1.6; color:#64748b;">
+                  Button not working? Copy and paste this link into your browser:
+                </p>
+                <p style="margin:0 0 28px; font-size:12px; word-break:break-all; line-height:1.6;">
+                  <a href="{{ .ConfirmationURL }}" style="color:#0284c7;">{{ .ConfirmationURL }}</a>
+                </p>
+
+                <!-- Divider -->
+                <div style="height:1px; background-color:#e2e8f0; margin:0 0 24px;"></div>
+
+                <p style="margin:0 0 6px; font-size:13px; color:#64748b;">
+                  Or enter this code manually in the app:
+                </p>
+                <p style="margin:0 0 24px;">
+                  <span style="
+                    display:inline-block;
+                    background:#e0f2fe;
+                    color:#075985;
+                    font-size:18px;
+                    font-weight:800;
+                    letter-spacing:3px;
+                    padding:10px 18px;
+                    border-radius:10px;">{{ .Token }}</span>
+                </p>
+
+                <p style="margin:0; font-size:12px; line-height:1.6; color:#94a3b8;">
+                  This link expires soon for your security. If you didn't create a VUT Homes
+                  account, you can safely ignore this email.
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="
+              padding:28px 20px 8px;
+              font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+              <p style="margin:0 0 6px; font-size:13px; font-weight:700; color:#475569;">
+                VUT Homes &mdash; Student Accommodation Portal
+              </p>
+              <p style="margin:0 0 14px; font-size:12px; color:#94a3b8;">
+                Vaal University of Technology &bull; Accredited Off-Campus Housing
+              </p>
+              <p style="margin:0; font-size:11px; color:#cbd5e1;">
+                This is an automated message &mdash; please do not reply directly.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

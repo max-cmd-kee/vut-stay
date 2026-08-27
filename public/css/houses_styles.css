@@ -1,0 +1,204 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Top bar for title and search/filter */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-bar-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    white-space: nowrap;
+}
+
+.top-bar-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.search-input,
+.filter-dropdown {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.search-input:focus,
+.filter-dropdown:focus {
+    border-color: #3b82f6;
+}
+
+/* Responsive top bar */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .top-bar-controls {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search-input,
+    .filter-dropdown {
+        width: 100%;
+    }
+}
+
+/* Container for accommodation tiles */
+.accommodation-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Accommodation Tile */
+.accommodation-tile {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.accommodation-tile.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-width: 0;
+}
+
+.accommodation-tile:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Tile Summary Structure */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #f3f4f6;
+    transition: border-color 0.3s ease;
+}
+
+.accommodation-tile:hover .profile-pic {
+    border-color: #3b82f6;
+}
+
+.house-name {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.house-address {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Responsive tile */
+@media (max-width: 600px) {
+    .accommodation-tile {
+        width: 90%;
+    }
+
+    .tile-summary {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.filter-group .icon {
+    color: #555;
+}
+
+.form-input {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.search-group {
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.search-group .form-input {
+    width: 100%;
+    padding-left: 30px; /* Space for icon */
+}
+
+.search-group .icon {
+    position: absolute;
+    margin-left: 10px;
+    color: #999;
+}
+

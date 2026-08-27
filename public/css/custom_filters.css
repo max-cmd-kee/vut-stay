@@ -1,0 +1,75 @@
+/* Custom Filter Bar Styles */
+
+.filter-bar-container {
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: #151515;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.filter-group .icon {
+    color: #01b3a7;
+}
+
+/* Overriding template's large form-input for a more compact filter bar */
+.filter-group .form-input {
+    display: block;
+    width: 100%;
+    min-height: auto; /* Override */
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #151515;
+    background-color: #f7f7f7;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.filter-group .form-input:focus {
+    color: #151515;
+    background-color: #fff;
+    border-color: #01b3a7;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(1, 179, 167, 0.25);
+}
+
+.search-group {
+    position: relative;
+}
+
+.search-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9b9b9b;
+}
+
+.search-group .form-input {
+    padding-left: 40px;
+}
+
+.accommodation-item.hidden {
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: scale(0.95);
+    max-height: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+    border: none;
+}
